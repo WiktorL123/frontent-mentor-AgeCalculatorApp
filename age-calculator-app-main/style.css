@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('./assets/fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('./assets/fonts/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('./assets/fonts/Poppins-Bold.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('./assets/fonts/Poppins-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('./assets/fonts/Poppins-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('./assets/fonts/Poppins-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    background-color: rgba(112,134,150,0.27);
+
+}
+.calculator{
+    width: 500px;
+    aspect-ratio: 1/1;
+    background-color: white;
+    border-radius: 15px 15px 150px 15px;
+    margin: 24px 36px;
+    display: block;
+
+}
+.calculator-form_div{
+    width: 28%;
+    display: flex;
+    flex-direction: column;
+
+}
+.form-input{
+    width: 100px;
+    height: 50px;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 24px;
+    font-family: 'Poopins', sans-serif;
+    font-weight: bold;
+    gap: 1px;
+}
+label{
+    font-size: 16px;
+    font-family: 'Poopins', 'sans-serif';
+    font-style: italic;
+    font-weight: normal;
+    margin-bottom: 8px;
+
+}
+.calculator-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 24px 48px 12px 12px;
+}
+.hidden{
+    display: none;
+
+}
+.alert-p{
+    font-size: 12px;
+    color: rgba(236, 7, 19, 0.85);
+}
+.line-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+.line{
+    width: 80px;
+    height: 2px;
+    background-color: black;
+}
