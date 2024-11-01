@@ -1,6 +1,6 @@
 /*
 * TODO:
-*  1. Finish the displayError function.
+*  1. Finish logic of input-alert class in code(Optional add logic for recognize which input is invalid
 *  2. Change the result display to only update the span showing days, not all spans.
 * */
 
@@ -74,10 +74,13 @@ function calculateDifference(dateFromInputs, currentDate) {
 
 
 const showFragmentOfDate = (element, value) => {
-    element.textContent = `${value}`;
+    element.innerHTML = `${value}`;
 };
 
 function displayValidResult(diff) {
+    clearInputs()
+    clearLabels()
+    clearParagraphs()
     const daysSpan = document.querySelector('#answer-days');
     const monthsSpan = document.querySelector('#answer-months');
     const yearsSpan = document.querySelector('#answer-years');
@@ -86,8 +89,68 @@ function displayValidResult(diff) {
     showFragmentOfDate(yearsSpan, diff.yearsDiff);
 }
 
-function displayError() {
+function displayErrorInput() {
+    const inputs = getInputs()
+    console.log(inputs)
+    inputs.forEach(input=>{
+        clearInputs()
+        input.classList.add('alert-input')
+    })
 
+
+}
+
+function getLabels() {
+    return document.querySelectorAll('.form-label');
+}
+
+function clearLabels() {
+    getLabels().forEach(label=>label.classList.remove('alert-label'))
+}
+
+function displayErrorLabel() {
+    const labels = getLabels()
+    clearLabels()
+    labels.forEach(l=>l.classList.add('alert-label'))
+}
+
+function getParagraphs() {
+    return document.querySelectorAll('.form-p')
+}
+
+function clearParagraphs() {
+    getParagraphs().forEach(p=>{
+        p.classList.remove('alert-p')
+        p.classList.add('hidden')
+        p.classList.remove('shown')
+    })
+
+}
+
+function displayErrorMessage() {
+    const paragraphs = getParagraphs()
+    clearParagraphs()
+    paragraphs.forEach(p=>{
+        p.classList.add('alert-p')
+        p.classList.remove('hidden')
+        p.classList.add('shown')
+    })
+}
+
+function displayError() {
+    console.log('error')
+    displayErrorInput()
+    displayErrorLabel()
+    displayErrorMessage()
+
+}
+
+const getInputs = ()=>{
+    return document.querySelectorAll('.form-input')
+}
+
+function clearInputs() {
+    getInputs().forEach(input=> input.classList.remove('alert-input'))
 }
 
 function checkResult(state, difference) {
