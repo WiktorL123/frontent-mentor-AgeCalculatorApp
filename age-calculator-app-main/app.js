@@ -1,6 +1,6 @@
 /*
 * TODO:
-*  1. Finish logic of input-alert class in code(Optional add logic for recognize which input is invalid
+*  1. Finish logic of input-alert class in code(Optional add logic for recognize which input is invalid -- DONE - OPTIONAL NOT DONE YET
 *  2. Change the result display to only update the span showing days, not all spans.
 * */
 
@@ -77,13 +77,22 @@ const showFragmentOfDate = (element, value) => {
     element.innerHTML = `${value}`;
 };
 
-function displayValidResult(diff) {
+function clearDisplay() {
     clearInputs()
     clearLabels()
     clearParagraphs()
-    const daysSpan = document.querySelector('#answer-days');
-    const monthsSpan = document.querySelector('#answer-months');
-    const yearsSpan = document.querySelector('#answer-years');
+}
+
+function getSpans() {
+    const daysSpan = document.querySelector('#answer-days .answer-span');
+    const monthsSpan = document.querySelector('#answer-months .answer-span');
+    const yearsSpan = document.querySelector('#answer-years .answer-span');
+    return {daysSpan, monthsSpan, yearsSpan};
+}
+
+function displayValidResult(diff) {
+    clearDisplay();
+    const {daysSpan, monthsSpan, yearsSpan} = getSpans();
     showFragmentOfDate(daysSpan, diff.dayDiff);
     showFragmentOfDate(monthsSpan, diff.monthDiff);
     showFragmentOfDate(yearsSpan, diff.yearsDiff);
@@ -91,9 +100,9 @@ function displayValidResult(diff) {
 
 function displayErrorInput() {
     const inputs = getInputs()
+    clearInputs()
     console.log(inputs)
     inputs.forEach(input=>{
-        clearInputs()
         input.classList.add('alert-input')
     })
 
